@@ -1,6 +1,6 @@
 host: "192.168.1.50"
 port: 8080
 dbName : "mydb"
-dbUser : "dbuser"
-dbPassword : "pwd"
+dbUser : "myuser"
+dbPassword : "password"
 mySqlDriver : "com.mysql.jdbc.Driver"

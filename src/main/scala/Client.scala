@@ -75,6 +75,7 @@ object Client extends App with Config with Logger with Users {
       )
     }
 
+    println(users.toList)
     val jsonString = listToJson(users.toList)
     print(jsonString)
     jsonString
@@ -85,8 +86,8 @@ object Client extends App with Config with Logger with Users {
     * @param tableContent
     * @return
     */
-  def listToJson(tableContent: List[Any]): String = {
-    implicit val formats = DefaultFormats
+  def listToJson(tableContent: List[User]): String = {
+    implicit val formats = net.liftweb.json.DefaultFormats
     val jsonString = write(tableContent)
 
     jsonString

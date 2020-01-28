@@ -15,6 +15,5 @@ trait Config {
   val dbUser = configProps.get("dbUser").toString
   val dbPassword = configProps.get("dbPassword").toString
   val mySqlDriver = configProps.get("mySqlDriver").toString
-  val url = "jdbc:mysql://192.168.1.24:3306/hackatondb"
 
 }

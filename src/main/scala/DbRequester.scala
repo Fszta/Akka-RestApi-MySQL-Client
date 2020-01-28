@@ -10,6 +10,7 @@ object DbRequester extends Logger with Config {
   implicit lazy val actorSystem = ActorSystem("RDBMS")
   implicit lazy val executionContext = actorSystem.dispatcher
 
+  val url = "jdbc:mysql://"+host+":3306"+"/"+dbName
   var connection: Connection = _
 
   /**
@@ -21,10 +22,8 @@ object DbRequester extends Logger with Config {
     Try(connection = DriverManager.getConnection(url, dbUser, dbPassword)) match {
       case Success(_) =>
         writeLog("info", s"Connected to $dbUser")
-        println(s"Connected to $dbUser")
       case Failure(e) =>
         writeLog("error", s"fail to connect to $dbUser : $e")
-        println(s"Error during $dbUser connection")
     }
     val selectResult = selectFromTable(connection, tableName)
     val jsonData = tableContentToJson(selectResult)

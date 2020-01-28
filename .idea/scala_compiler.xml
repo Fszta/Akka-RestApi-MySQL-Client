@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="RestAPI_MYSQL_Client,akka-restapi-mysql-client_8896,jdbc" />
+  </component>
+</project>

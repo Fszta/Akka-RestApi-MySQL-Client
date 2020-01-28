@@ -1,4 +1,4 @@
-name := "jdbc"
+name := "RestAPI_MYSQL_Client"
 
 version := "0.1"
 
@@ -10,7 +10,7 @@ val akkaVersion = "2.5.11"
 
 libraryDependencies ++= Seq(
       "mysql" % "mysql-connector-java" % "5.1.46",
-      "net.liftweb" %% "lift-json" % "3.1.0",
+      "net.liftweb" %% "lift-json" % "3.4.0",
       "org.yaml" % "snakeyaml" % "1.25",
       "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
       "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
