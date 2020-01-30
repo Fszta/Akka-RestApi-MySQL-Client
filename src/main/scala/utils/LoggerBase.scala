@@ -2,7 +2,7 @@ package utils
 
 import com.typesafe.scalalogging.Logger
 
-trait Logger {
+trait LoggerBase {
   lazy val logger = Logger(this.getClass)
 
   def writeLog(level: String, message: String): Unit = level match {
