@@ -1,4 +1,4 @@
-import utils.Logger
+import utils.LoggerBase
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
@@ -10,7 +10,7 @@ import akka.http.scaladsl.server.Directives._
 import Controller._
 import utils.Config
 
-object HttpServer  extends  Config with Logger{
+object HttpServer  extends  Config with LoggerBase{
 
   def main(args: Array[String]): Unit = {
 

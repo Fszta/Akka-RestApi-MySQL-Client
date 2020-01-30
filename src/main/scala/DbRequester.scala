@@ -3,9 +3,9 @@ import akka.actor.ActorSystem
 import Client.{selectFromTable, tableContentToJson}
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
-import utils.{Config, Logger}
+import utils.{Config, LoggerBase}
 
-object DbRequester extends Logger with Config {
+object DbRequester extends LoggerBase with Config {
 
   implicit lazy val actorSystem = ActorSystem("RDBMS")
   implicit lazy val executionContext = actorSystem.dispatcher
