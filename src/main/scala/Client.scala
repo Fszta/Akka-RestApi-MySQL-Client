@@ -1,14 +1,14 @@
 import java.sql.{Connection, ResultSet}
 import scala.collection.mutable.ListBuffer
 import scala.util.{Failure, Success, Try}
-import net.liftweb.json._
-import net.liftweb.json.Serialization.write
-import utils.{Config, Logger}
+import utils.{Config, LoggerBase}
 
-object Client extends App with Config with Logger with Users {
+
+object Client extends App with Config with LoggerBase with Users {
 
   /**
     * Extract content of sql table
+    *
     * @param connection java sql connection
     * @param tableName
     * @return
@@ -21,6 +21,7 @@ object Client extends App with Config with Logger with Users {
 
   /**
     * List  existing tables in database
+    *
     * @param connection Java SQL Connection
     */
   def listTables(connection: Connection): List[String] = {
@@ -36,7 +37,8 @@ object Client extends App with Config with Logger with Users {
   }
 
   /**
-    * Create new table
+    * Create new table in mysql database
+    *
     * @param connection
     */
   def createTable(connection: Connection): Unit = {
@@ -60,6 +62,7 @@ object Client extends App with Config with Logger with Users {
 
   /**
     * Convert content of sql database to JsonString format
+    *
     * @param res
     * @return
     */
@@ -74,27 +77,17 @@ object Client extends App with Config with Logger with Users {
         res.getString("email")
       )
     }
-
-    println(users.toList)
-    val jsonString = listToJson(users.toList)
-    print(jsonString)
-    jsonString
-  }
-
-  /**
-    * Convert a list of case class to JsonString format
-    * @param tableContent
-    * @return
-    */
-  def listToJson(tableContent: List[User]): String = {
-    implicit val formats = net.liftweb.json.DefaultFormats
-    val jsonString = write(tableContent)
+    val jsonString = userListToJson(users.toList)
 
     jsonString
   }
+
+
+
 
   /**
     * Insert a new user in users_info Table
+    *
     * @param connection
     * @param user
     */
