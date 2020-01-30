@@ -12,10 +12,10 @@ trait CacheConfig {
     val defaultCachingSettings = CachingSettings(actorSystem)
     val lfuCacheSettings =
       defaultCachingSettings.lfuCacheSettings
-        .withInitialCapacity(25)
-        .withMaxCapacity(50)
-        .withTimeToLive(2000.seconds)
-        .withTimeToIdle(1000.seconds)
+        .withInitialCapacity(50)
+        .withMaxCapacity(100)
+        .withTimeToLive(600.seconds)
+        .withTimeToIdle(100.seconds)
 
     val cachingSettings =
       defaultCachingSettings.withLfuCacheSettings(lfuCacheSettings)
